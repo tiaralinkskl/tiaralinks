@@ -1,0 +1,1567 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tiara Links Sdn. Bhd. | CIDB-Certified Construction Company</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        :root {
+            --primary: #ff6600;
+            --secondary: #333333;
+            --light: #f8f9fa;
+            --dark: #212529;
+            --gray: #6c757d;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            line-height: 1.6;
+            color: var(--dark);
+            overflow-x: hidden;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background-color: var(--primary);
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+        }
+
+        .btn:hover {
+            background-color: #e55a00;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            border: 2px solid white;
+            color: white;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+        }
+
+        .btn-outline:hover {
+            background-color: white;
+            color: var(--primary);
+        }
+
+        section {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-title h2 {
+            font-size: 36px;
+            color: var(--secondary);
+            margin-bottom: 15px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background-color: var(--primary);
+        }
+
+        .section-title p {
+            color: var(--gray);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* Header Styles */
+        header {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+
+        .logo {
+            display: flex;
+            flex-direction: column;
+            text-decoration: none;
+        }
+
+        .logo-main {
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--secondary);
+            line-height: 1;
+        }
+
+        .logo-sub {
+            font-size: 14px;
+            color: var(--primary);
+            font-weight: 600;
+            letter-spacing: 1px;
+            margin-top: 2px;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            align-items: center;
+        }
+
+        nav ul li {
+            margin-left: 30px;
+            position: relative;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: var(--secondary);
+            font-weight: 600;
+            transition: color 0.3s ease;
+            display: flex;
+            align-items: center;
+        }
+
+        nav ul li a:hover {
+            color: var(--primary);
+        }
+
+        .dropdown-menu {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: white;
+            min-width: 220px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+            border-radius: 4px;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-10px);
+            transition: all 0.3s ease;
+            z-index: 1000;
+        }
+
+        .dropdown-menu li {
+            margin: 0;
+            width: 100%;
+        }
+
+        .dropdown-menu li a {
+            padding: 12px 20px;
+            display: block;
+            border-bottom: 1px solid #f0f0f0;
+            width: 100%;
+        }
+
+        .dropdown-menu li:last-child a {
+            border-bottom: none;
+        }
+
+        .dropdown:hover .dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 24px;
+            color: var(--secondary);
+            cursor: pointer;
+        }
+
+        /* Hero Section with Carousel */
+        .hero {
+            position: relative;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        .carousel {
+            position: relative;
+            height: 100%;
+            width: 100%;
+        }
+
+        .carousel-inner {
+            position: relative;
+            height: 100%;
+            width: 100%;
+            overflow: hidden;
+        }
+
+        .carousel-item {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 1s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+        }
+
+        .carousel-item.active {
+            opacity: 1;
+        }
+
+        .carousel-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            z-index: -1;
+        }
+
+        .carousel-item-1 {
+            background: url('https://images.unsplash.com/photo-1541888946425-d81bb19240f5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80') no-repeat center center/cover;
+        }
+
+        .carousel-item-2 {
+            background: url('https://images.unsplash.com/photo-1504307651254-35680f356dfd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80') no-repeat center center/cover;
+        }
+
+        .carousel-item-3 {
+            background: url('https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80') no-repeat center center/cover;
+        }
+
+        .carousel-content {
+            max-width: 800px;
+            padding: 0 20px;
+            z-index: 1;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+        }
+
+        .carousel-content h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            line-height: 1.2;
+            font-weight: 700;
+        }
+
+        .carousel-content p {
+            font-size: 18px;
+            margin-bottom: 30px;
+            font-weight: 500;
+            line-height: 1.6;
+        }
+
+        .carousel-controls {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 10px;
+        }
+
+        .carousel-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.5);
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .carousel-dot.active {
+            background-color: white;
+        }
+
+        /* FIXED Highlights Section */
+        .highlights {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 50px;
+            gap: 30px;
+            position: relative;
+            z-index: 2;
+            padding: 0 20px;
+        }
+
+        .highlight-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            max-width: 200px;
+            text-align: center;
+        }
+
+        .highlight-icon {
+            width: 90px;
+            height: 90px;
+            background-color: rgba(255, 255, 255, 0.15);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 15px;
+            font-size: 40px;
+            backdrop-filter: blur(5px);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            position: relative;
+            overflow: visible;
+            line-height: 1;
+            padding: 0;
+        }
+
+        .highlight-text {
+            text-align: center;
+            color: white;
+            font-size: 14px;
+            font-weight: 500;
+            line-height: 1.4;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
+        }
+
+        /* About Section */
+        .about-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .about-img {
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .about-img img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .about-content h2 {
+            font-size: 36px;
+            margin-bottom: 20px;
+            color: var(--secondary);
+        }
+
+        .about-content p {
+            margin-bottom: 20px;
+            color: var(--gray);
+        }
+
+        .about-features {
+            margin-top: 30px;
+        }
+
+        .feature {
+            display: flex;
+            margin-bottom: 20px;
+        }
+
+        .feature-icon {
+            background-color: var(--primary);
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 20px;
+            flex-shrink: 0;
+        }
+
+        .feature-content h4 {
+            font-size: 18px;
+            margin-bottom: 5px;
+            color: var(--secondary);
+        }
+
+        /* Mission Vision Section */
+        .mission-vision {
+            background-color: var(--light);
+        }
+
+        .mv-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+        }
+
+        .mv-card {
+            background-color: white;
+            border-radius: 8px;
+            padding: 40px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            height: 100%;
+        }
+
+        .mv-card h3 {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: var(--secondary);
+            display: flex;
+            align-items: center;
+        }
+
+        .mv-card h3 i {
+            margin-right: 10px;
+            color: var(--primary);
+        }
+
+        .mv-card ul {
+            list-style-type: none;
+        }
+
+        .mv-card ul li {
+            margin-bottom: 10px;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        .mv-card ul li:before {
+            content: "•";
+            color: var(--primary);
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+
+        /* Leadership Section */
+        .leadership-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .leader-card {
+            background-color: white;
+            border-radius: 8px;
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease;
+        }
+
+        .leader-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .leader-content h3 {
+            font-size: 22px;
+            margin-bottom: 5px;
+            color: var(--secondary);
+        }
+
+        .leader-content .position {
+            color: var(--primary);
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .leader-content .quote {
+            font-style: italic;
+            color: var(--gray);
+            margin-bottom: 15px;
+            border-left: 3px solid var(--primary);
+            padding-left: 15px;
+        }
+
+        /* Services Section */
+        .services {
+            background-color: var(--light);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .service-card {
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .service-img {
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .service-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .service-card:hover .service-img img {
+            transform: scale(1.1);
+        }
+
+        .service-content {
+            padding: 25px;
+        }
+
+        .service-content h3 {
+            font-size: 22px;
+            margin-bottom: 15px;
+            color: var(--secondary);
+        }
+
+        .service-content p {
+            color: var(--gray);
+            margin-bottom: 15px;
+        }
+
+        /* Track Record Section */
+        .track-record {
+            background-color: var(--light);
+        }
+
+        .track-record-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .track-record-item {
+            background-color: white;
+            border-radius: 8px;
+            padding: 30px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .track-record-item h3 {
+            font-size: 20px;
+            margin-bottom: 15px;
+            color: var(--secondary);
+        }
+
+        .track-record-item p {
+            color: var(--gray);
+        }
+
+        /* Financial Strength Section */
+        .financial-strength {
+            background-color: var(--light);
+        }
+
+        .financial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .financial-item {
+            background-color: white;
+            border-radius: 8px;
+            padding: 30px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .financial-item h3 {
+            font-size: 20px;
+            margin-bottom: 15px;
+            color: var(--secondary);
+        }
+
+        .financial-item p {
+            color: var(--gray);
+        }
+
+        /* Certifications Section */
+        .certifications-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .certifications-table th, .certifications-table td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .certifications-table th {
+            background-color: var(--primary);
+            color: white;
+        }
+
+        .certifications-table tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        .certifications-table tr:hover {
+            background-color: #f1f1f1;
+        }
+
+        /* Why Choose Us Section */
+        .why-choose-us {
+            background-color: var(--light);
+        }
+
+        .reasons-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .reason-card {
+            background-color: white;
+            border-radius: 8px;
+            padding: 30px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease;
+        }
+
+        .reason-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .reason-icon {
+            width: 70px;
+            height: 70px;
+            background-color: var(--primary);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 24px;
+        }
+
+        .reason-card h3 {
+            font-size: 20px;
+            margin-bottom: 15px;
+            color: var(--secondary);
+        }
+
+        .reason-card p {
+            color: var(--gray);
+        }
+
+        /* Contact Section */
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .contact-item {
+            display: flex;
+            margin-bottom: 30px;
+        }
+
+        .contact-icon {
+            background-color: var(--primary);
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 20px;
+            flex-shrink: 0;
+        }
+
+        .contact-details h4 {
+            font-size: 18px;
+            margin-bottom: 5px;
+            color: var(--secondary);
+        }
+
+        .contact-details p {
+            color: var(--gray);
+        }
+
+        .contact-form .form-group {
+            margin-bottom: 20px;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 16px;
+            transition: border-color 0.3s ease;
+        }
+
+        .contact-form input:focus,
+        .contact-form textarea:focus {
+            border-color: var(--primary);
+            outline: none;
+        }
+
+        .contact-form textarea {
+            height: 150px;
+            resize: vertical;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--secondary);
+            color: white;
+            padding: 70px 0 0;
+        }
+
+        .footer-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 50px;
+        }
+
+        .footer-col h3 {
+            font-size: 20px;
+            margin-bottom: 25px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-col h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 2px;
+            background-color: var(--primary);
+        }
+
+        .footer-col p {
+            color: #bbb;
+            margin-bottom: 20px;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links a {
+            color: #bbb;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--primary);
+        }
+
+        .social-links {
+            display: flex;
+            margin-top: 20px;
+        }
+
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            margin-right: 10px;
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            background-color: var(--primary);
+            transform: translateY(-3px);
+        }
+
+        .copyright {
+            text-align: center;
+            padding: 20px 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #bbb;
+            font-size: 14px;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            .about-container,
+            .mv-container,
+            .contact-container {
+                grid-template-columns: 1fr;
+            }
+
+            .about-img {
+                order: -1;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header-container {
+                padding: 15px 0;
+            }
+
+            nav {
+                position: fixed;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                background-color: white;
+                box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+                padding: 20px;
+                transform: translateY(-150%);
+                transition: transform 0.3s ease;
+            }
+
+            nav.active {
+                transform: translateY(0);
+            }
+
+            nav ul {
+                flex-direction: column;
+            }
+
+            nav ul li {
+                margin: 0 0 15px 0;
+            }
+
+            .dropdown-menu {
+                position: static;
+                opacity: 1;
+                visibility: visible;
+                transform: none;
+                box-shadow: none;
+                background-color: transparent;
+                margin-top: 10px;
+                margin-left: 20px;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .carousel-content h1 {
+                font-size: 36px;
+            }
+
+            .section-title h2 {
+                font-size: 30px;
+            }
+
+            .highlights {
+                gap: 20px;
+            }
+
+            .highlight-item {
+                max-width: 150px;
+            }
+
+            .highlight-icon {
+                width: 80px;
+                height: 80px;
+                font-size: 36px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            section {
+                padding: 60px 0;
+            }
+
+            .hero {
+                height: 80vh;
+            }
+
+            .carousel-content h1 {
+                font-size: 28px;
+            }
+
+            .btn {
+                padding: 10px 25px;
+            }
+
+            .certifications-table {
+                font-size: 14px;
+            }
+
+            .certifications-table th, .certifications-table td {
+                padding: 10px 5px;
+            }
+
+            .highlight-icon {
+                width: 70px;
+                height: 70px;
+                font-size: 32px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <a href="#" class="logo">
+                <div class="logo-main">TIARA LINKS</div>
+                <div class="logo-sub">SDN BHD</div>
+            </a>
+            <button class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </button>
+            <nav>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li class="dropdown">
+                        <a href="#about">About <i class="fas fa-chevron-down" style="margin-left: 5px; font-size: 12px;"></i></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#about">Who We Are</a></li>
+                            <li><a href="#mission-vision">Mission & Vision</a></li>
+                            <li><a href="#leadership">Leadership</a></li>
+                            <li><a href="#financial-strength">Financial Strength</a></li>
+                            <li><a href="#certifications">Certifications</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#track-record">Track Record</a></li>
+                    <li><a href="#why-choose-us">Why Choose Us</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section with Carousel -->
+    <section class="hero" id="home">
+        <div class="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item carousel-item-1 active">
+                    <div class="carousel-content">
+                        <h1>Building With Integrity, Precision, and Purpose.</h1>
+                        <p>Tiara Links Sdn. Bhd. is a CIDB-certified construction and infrastructure company based in Kuala Lumpur. We combine engineering expertise, innovation, and integrity to deliver lasting value across Malaysia's built environment.</p>
+                        <a href="#services" class="btn">Explore Our Projects</a>
+                        <a href="#contact" class="btn btn-outline">Contact Us</a>
+                    </div>
+                </div>
+                <div class="carousel-item carousel-item-2">
+                    <div class="carousel-content">
+                        <h1>Quality Construction Services</h1>
+                        <p>From residential buildings to commercial complexes, we deliver projects with the highest standards of quality and safety.</p>
+                        <a href="#services" class="btn">Our Services</a>
+                        <a href="#contact" class="btn btn-outline">Get a Quote</a>
+                    </div>
+                </div>
+                <div class="carousel-item carousel-item-3">
+                    <div class="carousel-content">
+                        <h1>Certified & Trusted Partner</h1>
+                        <p>As a CIDB G2 registered Bumiputera contractor with MOF and PETRONAS registration, we are your trusted construction partner.</p>
+                        <a href="#certifications" class="btn">Our Certifications</a>
+                        <a href="#contact" class="btn btn-outline">Work With Us</a>
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-controls">
+                <div class="carousel-dot active" data-slide="0"></div>
+                <div class="carousel-dot" data-slide="1"></div>
+                <div class="carousel-dot" data-slide="2"></div>
+            </div>
+        </div>
+        
+        <div class="highlights">
+            <div class="highlight-item">
+                <div class="highlight-icon">🏗️</div>
+                <div class="highlight-text">CIDB G2 Registered Bumiputera Contractor</div>
+            </div>
+            <div class="highlight-item">
+                <div class="highlight-icon">💼</div>
+                <div class="highlight-text">MOF & PETRONAS Registered</div>
+            </div>
+            <div class="highlight-item">
+                <div class="highlight-icon">💰</div>
+                <div class="highlight-text">Financially Stable & Professionally Managed</div>
+            </div>
+            <div class="highlight-item">
+                <div class="highlight-icon">⚙️</div>
+                <div class="highlight-text">Experienced Multidisciplinary Team</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="container about-container">
+            <div class="about-content">
+                <h2>Who We Are</h2>
+                <p>Tiara Links Sdn. Bhd. is a forward-driven construction and infrastructure company headquartered in Kuala Lumpur, Malaysia. Established in 2023, the company is built on a foundation of professionalism, precision, and progress.</p>
+                <p>Our vision is not just to build structures — but to build trust, innovation, and legacy.</p>
+                
+                <h3 style="margin-top: 30px;">Our Story</h3>
+                <p>Since inception, Tiara Links has consistently delivered high-quality projects while maintaining strict standards of safety and excellence. Our growing reputation is built on trust, technical skill, and a results-oriented mindset.</p>
+                
+                <h3 style="margin-top: 30px;">The Meaning Behind Our Name</h3>
+                <p><strong>"Tiara"</strong> — Symbolizes excellence, leadership, and prestige.</p>
+                <p><strong>"Links"</strong> — Represents connection, collaboration, and continuity.</p>
+                <p>Together, they reflect our commitment to unity, partnership, and quality construction that endures.</p>
+            </div>
+            <div class="about-img">
+                <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Tiara Links Construction">
+            </div>
+        </div>
+    </section>
+
+    <!-- Mission & Vision Section -->
+    <section class="mission-vision" id="mission-vision">
+        <div class="container">
+            <div class="section-title">
+                <h2>Mission & Vision</h2>
+            </div>
+            <div class="mv-container">
+                <div class="mv-card">
+                    <h3><i class="fas fa-bullseye"></i> Our Mission</h3>
+                    <ul>
+                        <li>Deliver world-class construction and engineering solutions with integrity and professionalism.</li>
+                        <li>Lead with innovation and agility in a rapidly evolving industry.</li>
+                        <li>Create spaces that inspire, serve, and stand the test of time.</li>
+                        <li>Build partnerships that strengthen communities and expand opportunities.</li>
+                        <li>Empower our workforce through leadership and continuous learning.</li>
+                    </ul>
+                </div>
+                <div class="mv-card">
+                    <h3><i class="fas fa-eye"></i> Our Vision</h3>
+                    <p>To become a world-class construction enterprise, setting the benchmark for quality, innovation, and integrity — shaping Malaysia's future infrastructure with purpose and precision.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Leadership Section -->
+    <section class="leadership" id="leadership">
+        <div class="container">
+            <div class="section-title">
+                <h2>Leadership Team</h2>
+                <p>Meet the experienced professionals leading Tiara Links Sdn. Bhd.</p>
+            </div>
+            <div class="leadership-grid">
+                <div class="leader-card">
+                    <div class="leader-content">
+                        <h3>Khairul Arifin Bin Mustafa</h3>
+                        <div class="position">Director / Chief Executive Officer (CEO)</div>
+                        <div class="quote">"Leadership is about building trust, creating clarity, and delivering results that endure."</div>
+                        <p>Bachelor's Degree in Accounting (IIUM) | Master's in Forensic Accounting (UiTM)</p>
+                        <p>Khairul brings over a decade of multidisciplinary experience, blending financial expertise and strategic foresight to drive Tiara Links' growth and governance.</p>
+                    </div>
+                </div>
+                <div class="leader-card">
+                    <div class="leader-content">
+                        <h3>Mohamad Hafiz Bin Hamidon</h3>
+                        <div class="position">Director / Chief Operating Officer (COO)</div>
+                        <div class="quote">"True leadership lies in empowering others, refining systems, and executing with clarity."</div>
+                        <p>Certified HRD Corp Trainer | Background in Banking, Advisory, Education, and Healthcare</p>
+                        <p>Hafiz ensures operational excellence through data-driven strategy, compliance, and talent development.</p>
+                    </div>
+                </div>
+            </div>
+            <div style="text-align: center; margin-top: 30px;">
+                <h3>Our Team</h3>
+                <p>Mohamad Hariz Bin Ab Razak – Business Development Manager</p>
+                <p>Mohamad Haziq – Sales & Marketing Executive</p>
+                <p>Mohd Saiful – General Assistant</p>
+                <p>Mohamad Adib – General Assistant</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Financial Strength Section -->
+    <section class="financial-strength" id="financial-strength">
+        <div class="container">
+            <div class="section-title">
+                <h2>Financial Strength</h2>
+                <p>Our company operates with full transparency and prudent financial governance, led by professionals in accounting and forensic auditing.</p>
+            </div>
+            <div class="financial-grid">
+                <div class="financial-item">
+                    <h3>Stable Cash Flow</h3>
+                    <p>Strong financial position with consistent cash flow management</p>
+                </div>
+                <div class="financial-item">
+                    <h3>Compliance Excellence</h3>
+                    <p>Excellent compliance with statutory and industry standards</p>
+                </div>
+                <div class="financial-item">
+                    <h3>Large-Scale Capability</h3>
+                    <p>Financially capable to undertake large-scale, complex projects</p>
+                </div>
+                <div class="financial-item">
+                    <h3>Financial Integrity</h3>
+                    <p>Fully aligned with MOF and CIDB financial integrity benchmarks</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Certifications Section -->
+    <section class="certifications" id="certifications">
+        <div class="container">
+            <div class="section-title">
+                <h2>Certifications & Registrations</h2>
+                <p>Our official certifications and registrations with Malaysian authorities</p>
+            </div>
+            <table class="certifications-table">
+                <thead>
+                    <tr>
+                        <th>Category</th>
+                        <th>Registration No.</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>CIDB (PPK)</td>
+                        <td>0120250214-SL150726</td>
+                        <td>Bumiputera</td>
+                    </tr>
+                    <tr>
+                        <td>CIDB (SPKK)</td>
+                        <td>Active</td>
+                        <td>Bumiputera</td>
+                    </tr>
+                    <tr>
+                        <td>CIDB (STB)</td>
+                        <td>Active</td>
+                        <td>Bumiputera</td>
+                    </tr>
+                    <tr>
+                        <td>MOF</td>
+                        <td>357-0002423012</td>
+                        <td>Bumiputera</td>
+                    </tr>
+                    <tr>
+                        <td>PETRONAS Vendor</td>
+                        <td>Active</td>
+                        <td>Registered</td>
+                    </tr>
+                    <tr>
+                        <td>UPEN Selangor</td>
+                        <td>Active</td>
+                        <td>Registered</td>
+                    </tr>
+                    <tr>
+                        <td>SSM</td>
+                        <td>202301029923(1523846-V)</td>
+                        <td>Active</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services" id="services">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Services</h2>
+                <p>We offer a comprehensive range of construction services to meet all your building needs.</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-img">
+                        <img src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="General Construction">
+                    </div>
+                    <div class="service-content">
+                        <h3>General Construction & Civil Works</h3>
+                        <p>Residential, commercial, and infrastructure projects executed with precision and quality.</p>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="service-img">
+                        <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1558&q=80" alt="Renovation Works">
+                    </div>
+                    <div class="service-content">
+                        <h3>Renovation & Upgrading Works</h3>
+                        <p>Design, build, and improvement of existing facilities to meet modern standards.</p>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="service-img">
+                        <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Project Management">
+                    </div>
+                    <div class="service-content">
+                        <h3>Project Management</h3>
+                        <p>Planning, coordination, and supervision from start to completion of your project.</p>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="service-img">
+                        <img src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Maintenance Services">
+                    </div>
+                    <div class="service-content">
+                        <h3>Maintenance & Technical Services</h3>
+                        <p>Ensuring longevity and performance of completed works through regular maintenance.</p>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="service-img">
+                        <img src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1469&q=80" alt="Government Projects">
+                    </div>
+                    <div class="service-content">
+                        <h3>Government & Bumiputera-Linked Projects</h3>
+                        <p>Registered with MOF, CIDB, and PETRONAS for public and private tenders.</p>
+                    </div>
+                </div>
+            </div>
+            <div style="text-align: center; margin-top: 40px;">
+                <a href="#contact" class="btn">View Our Past Projects</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Track Record Section -->
+    <section class="track-record" id="track-record">
+        <div class="container">
+            <div class="section-title">
+                <h2>Track Record</h2>
+                <p>Tiara Links Sdn. Bhd. has successfully completed a range of entrusted projects, each executed with precision, professionalism, and full compliance with CIDB and safety standards.</p>
+            </div>
+            <div class="track-record-grid">
+                <div class="track-record-item">
+                    <h3>Residential & Commercial Developments</h3>
+                    <p>Quality construction of residential and commercial properties</p>
+                </div>
+                <div class="track-record-item">
+                    <h3>Infrastructure & Road Works</h3>
+                    <p>Development of essential infrastructure and transportation networks</p>
+                </div>
+                <div class="track-record-item">
+                    <h3>Building Maintenance & Upgrading</h3>
+                    <p>Comprehensive maintenance and improvement services</p>
+                </div>
+                <div class="track-record-item">
+                    <h3>Civil & Structural Engineering</h3>
+                    <p>Expert engineering solutions for complex construction projects</p>
+                </div>
+            </div>
+            <div style="text-align: center; margin-top: 30px;">
+                <p><em>Every completed project demonstrates our dedication to client satisfaction, innovation, and quality workmanship.</em></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us Section -->
+    <section class="why-choose-us" id="why-choose-us">
+        <div class="container">
+            <div class="section-title">
+                <h2>Why Choose Us</h2>
+                <p>Discover what makes Tiara Links Sdn. Bhd. your ideal construction partner</p>
+            </div>
+            <div class="reasons-grid">
+                <div class="reason-card">
+                    <div class="reason-icon">
+                        <i class="fas fa-award"></i>
+                    </div>
+                    <h3>Certified & Recognized</h3>
+                    <p>CIDB G2, MOF Bumiputera, PETRONAS vendor with full compliance to industry standards.</p>
+                </div>
+                <div class="reason-card">
+                    <div class="reason-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3>Experienced Management</h3>
+                    <p>10+ years combined leadership in construction & corporate finance with proven track record.</p>
+                </div>
+                <div class="reason-card">
+                    <div class="reason-icon">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
+                    <h3>Quality Assurance</h3>
+                    <p>Every project delivered with compliance, precision and attention to detail.</p>
+                </div>
+                <div class="reason-card">
+                    <div class="reason-icon">
+                        <i class="fas fa-handshake"></i>
+                    </div>
+                    <h3>Client-Centric Approach</h3>
+                    <p>Building long-term partnerships through reliability, communication and trust.</p>
+                </div>
+                <div class="reason-card">
+                    <div class="reason-icon">
+                        <i class="fas fa-leaf"></i>
+                    </div>
+                    <h3>Sustainability</h3>
+                    <p>We prioritize safe, environmentally responsible, and future-ready solutions.</p>
+                </div>
+                <div class="reason-card">
+                    <div class="reason-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>Financial Strength</h3>
+                    <p>Stable cash flow and strong capital position for large-scale, complex projects.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <div class="section-title">
+                <h2>Contact Us</h2>
+                <p>Get in touch with our team to discuss your construction needs.</p>
+            </div>
+            <div class="contact-container">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h4>Corporate Office</h4>
+                            <p>No. 311B-01, Lorong Kedah, Melawati Square,<br>Taman Melawati, 53100 Kuala Lumpur, Malaysia</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h4>Phone Number</h4>
+                            <p>Tel: 03-4162 5737<br>HP: 013-603 3231</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h4>Email Address</h4>
+                            <p>tiaralinkskl@gmail.com</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h4>Operating Hours</h4>
+                            <p>Monday – Friday, 9:00 AM – 6:00 PM</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-details">
+                            <p><em>"Your trust is our foundation. Your support is our strength."</em></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <form>
+                        <div class="form-group">
+                            <input type="text" placeholder="Your Name" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" placeholder="Your Email" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" placeholder="Subject">
+                        </div>
+                        <div class="form-group">
+                            <textarea placeholder="Your Message" required></textarea>
+                        </div>
+                        <button type="submit" class="btn">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container footer-container">
+            <div class="footer-col">
+                <h3>Tiara Links Sdn. Bhd.</h3>
+                <p>Building excellence with integrity, precision, and purpose for Malaysia's future infrastructure.</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h3>Quick Links</h3>
+                <ul class="footer-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#track-record">Track Record</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h3>Services</h3>
+                <ul class="footer-links">
+                    <li><a href="#">General Construction</a></li>
+                    <li><a href="#">Renovation Works</a></li>
+                    <li><a href="#">Project Management</a></li>
+                    <li><a href="#">Maintenance Services</a></li>
+                    <li><a href="#">Government Projects</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h3>Certifications</h3>
+                <ul class="footer-links">
+                    <li><a href="#">CIDB G2 Bumiputera</a></li>
+                    <li><a href="#">MOF Registered</a></li>
+                    <li><a href="#">PETRONAS Vendor</a></li>
+                    <li><a href="#">UPEN Selangor</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            <div class="container">
+                <p>&copy; 2025 Tiara Links Sdn. Bhd. | Registered under SSM No. 202301029923 (1523846-V)</p>
+                <p>CIDB G2 | MOF Bumiputera | PETRONAS Vendor</p>
+                <p>Website designed and managed by MHR Niaga Resources</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const nav = document.querySelector('nav');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            nav.classList.toggle('active');
+        });
+
+        // Smooth Scrolling for Anchor Links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    nav.classList.remove('active');
+                }
+            });
+        });
+
+        // Carousel Functionality
+        const carouselItems = document.querySelectorAll('.carousel-item');
+        const carouselDots = document.querySelectorAll('.carousel-dot');
+        let currentSlide = 0;
+        const slideInterval = 5000; // 5 seconds
+
+        function showSlide(index) {
+            // Hide all slides
+            carouselItems.forEach(item => item.classList.remove('active'));
+            carouselDots.forEach(dot => dot.classList.remove('active'));
+            
+            // Show the selected slide
+            carouselItems[index].classList.add('active');
+            carouselDots[index].classList.add('active');
+            currentSlide = index;
+        }
+
+        function nextSlide() {
+            let nextIndex = (currentSlide + 1) % carouselItems.length;
+            showSlide(nextIndex);
+        }
+
+        // Add click events to dots
+        carouselDots.forEach((dot, index) => {
+            dot.addEventListener('click', () => {
+                showSlide(index);
+                // Reset the auto-advance timer
+                clearInterval(autoAdvance);
+                autoAdvance = setInterval(nextSlide, slideInterval);
+            });
+        });
+
+        // Auto-advance the carousel
+        let autoAdvance = setInterval(nextSlide, slideInterval);
+
+        // Pause auto-advance when hovering over carousel
+        const carousel = document.querySelector('.carousel');
+        carousel.addEventListener('mouseenter', () => {
+            clearInterval(autoAdvance);
+        });
+
+        carousel.addEventListener('mouseleave', () => {
+            autoAdvance = setInterval(nextSlide, slideInterval);
+        });
+    </script>
+</body>
+</html>
